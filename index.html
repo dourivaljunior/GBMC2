@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Portal Garage Band — Mário Cravo</title>
+  <meta name="description" content="Portal Garage Band Mário Cravo — letras, músicas e back tracking por estilo e banda." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Monoton&family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- canvas de lasers / fundo animado -->
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <!-- Pisca-pisca topo -->
+  <div class="string-lights" aria-hidden="true">
+    <ul>
+      <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+      <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+      <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+    </ul>
+  </div>
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo-dot"></span>
+      <h1 class="brand-text">Portal <span>Garage Band</span> · Mário Cravo</h1>
+    </div>
+    <nav class="status">
+      <span id="conn-status" class="chip">conectando…</span>
+    </nav>
+  </header>
+
+  <main class="stage">
+    <!-- Painel esquerdo: estilos -->
+    <section class="panel panel-styles" aria-label="Estilos musicais">
+      <div class="panel-head">
+        <h2 class="marquee-sign" data-text="ESTILOS">ESTILOS</h2>
+      </div>
+      <ul id="styles-list" class="grid-cards">
+        <li class="skeleton"></li><li class="skeleton"></li>
+        <li class="skeleton"></li><li class="skeleton"></li>
+      </ul>
+    </section>
+
+    <!-- Painel direito: letreiro inicial / bandas / músicas -->
+    <section class="panel panel-right" aria-label="Conteúdo">
+      <div id="right-pane">
+        <!-- Tela inicial -->
+        <div id="welcome" class="welcome">
+          <div class="neon-frame">
+            <img src="assets/portal-logo.jpg" alt="Portal Garage Band Mário Cravo" />
+          </div>
+          <h2 class="marquee-sign big" data-text="PORTAL GARAGE BAND">PORTAL GARAGE BAND</h2>
+          <h3 class="marquee-sign sub" data-text="MÁRIO CRAVO">MÁRIO CRAVO</h3>
+          <p class="hint">← Escolha um estilo para começar</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal player -->
+  <div id="modal" class="modal" hidden>
+    <div class="modal-card neon-frame">
+      <button class="close" id="modal-close" aria-label="Fechar">×</button>
+      <h3 id="modal-title" class="marquee-sign sub" data-text=""></h3>
+      <div class="tabs" role="tablist">
+        <button class="tab active" data-tab="letra">Letra (PDF)</button>
+        <button class="tab" data-tab="musica">Música</button>
+        <button class="tab" data-tab="back">Back tracking</button>
+      </div>
+      <div class="tab-content">
+        <div data-pane="letra" class="pane active">
+          <iframe id="pdf-frame" title="Letra" src="about:blank"></iframe>
+        </div>
+        <div data-pane="musica" class="pane">
+          <div class="player-wrap">
+            <div class="equalizer" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+            <audio id="audio-musica" controls preload="none"></audio>
+          </div>
+        </div>
+        <div data-pane="back" class="pane">
+          <div class="player-wrap">
+            <div class="equalizer alt" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+            <audio id="audio-back" controls preload="none"></audio>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footbar">
+    <small>© Portal Garage Band — Mário Cravo</small>
+  </footer>
+
+  <script type="module" src="js/config.js"></script>
+  <script type="module" src="js/bg-lasers.js"></script>
+  <script type="module" src="js/api.js"></script>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
